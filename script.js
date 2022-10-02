@@ -7,7 +7,7 @@
 //      fullPrice- любое число (сколько хотите заработать),
 //      adaptive- булевое значение
 
-let title = "Glo первый проект JS",
+const title = "Glo первый проект JS",
   screens = "Простые, Сложные, Интерактивные",
   screenPrice = 1989,
   rollback = 89,
