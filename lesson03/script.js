@@ -58,25 +58,21 @@ if (fullPrice > 30000) {
   console.log('Что то пошло не так');
 }
 
+//switch version
 
-// switch (fullPrice) {
-//   case fullPrice > 30000:
-//     console.log('Даем скидку в 10%');
-//     break;
+switch (true) {
+  case fullPrice > 30000:
+    console.log('Даем скидку в 10%');
+    break;
 
-//   case fullPrice >= 15000 && fullPrice <= 30000:
-//     console.log('Даем скидку в 5%');
-//     break;
+  case fullPrice >= 15000 && fullPrice <= 30000:
+    console.log('Даем скидку в 5%');
+    break;
 
-//   case fullPrice < 15000 && fullPrice >= 0:
-//     console.log('Скидка не предусмотрена');
-//     break;
+  case fullPrice < 15000 && fullPrice >= 0:
+    console.log('Скидка не предусмотрена');
+    break;
 
-//   default:
-//     console.log('Что то пошло не так');
-// }
-
-
-
-//Александр,  Switch Case почему-то не проверяет fullPrice ,
-// a сразу выдает default, долго пытался выявить причину , но не нашел :(
+  default:
+    console.log('Что то пошло не так');
+}
