@@ -23,6 +23,7 @@ const asking = function () {
   do {
     screenPrice = prompt('Сколько будет стоить данная работа?');
   } while (!isNumber(screenPrice));
+  screenPrice = +screenPrice;
   adaptive = confirm('Нужен ли адаптив на сайте?');
 };
 
@@ -60,7 +61,7 @@ const getAllServicePrices = function () {
 };
 
 function getFullPrice(price1, price2) {
-  return +price1 + (+price2);
+  return price1 + price2;
 }
 
 const getTitle = (str) => {
