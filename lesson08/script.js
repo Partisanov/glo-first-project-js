@@ -28,8 +28,6 @@ const appData = {
       appData.title = prompt('Как называется Ваш проект?');
     }
     while (appData.isNumber(appData.title));
-
-
     for (let i = 0; i < 2; i++) {
       let price = 0;
       let name = '';
@@ -52,15 +50,20 @@ const appData = {
       do {
         price = prompt('Сколько будет стоить данная работа?');
       } while (!appData.isNumber(price));
+      if (name in appData.services) {
+        name = `${name}(${i})`;
+      }
       appData.services[name] = +price;
     }
     appData.screenPrice = +appData.screenPrice;
     appData.adaptive = confirm('Нужен ли адаптив на сайте?');
   },
   addPrices: function () {
-    for (let screen of appData.screens) {
-      appData.screenPrice += +screen.price;
-    }
+    appData.screenPrice = appData.screens.reduce((sum, currentItem) => {
+      sum += +currentItem.price;
+      return sum;
+    }, 0);
+
     for (let key in appData.services) {
       appData.allServicePrices += appData.services[key];
     }
