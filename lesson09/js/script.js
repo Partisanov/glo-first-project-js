@@ -1,13 +1,18 @@
 'use strict';
 //блок объявления переменных 
-const title = document.getElementsByTagName('h1');
-const handlerBns = document.getElementsByClassName('handler_btn');
+const title = document.getElementsByTagName('h1')[0];
+const calculateBtn = document.getElementsByClassName('handler_btn')[0];
+const resetBtn = document.getElementsByClassName('handler_btn')[1];
 const addBtn = document.querySelector('.screen-btn');
 const percentItems = document.querySelectorAll('.other-items.percent');
 const numberItems = document.querySelectorAll('.other-items.number');
 const inputRange = document.querySelector('.rollback input[type="range"]');
 const spanRangeValue = document.querySelector('.rollback .range-value');
-const inputsTotal = document.getElementsByClassName('total-input');
+const costLayoutInput = document.getElementsByClassName('total-input')[0];
+const numberScreensInput = document.getElementsByClassName('total-input')[1];
+const costAdditionalServicesInput = document.getElementsByClassName('total-input')[2];
+const totalCostInput = document.getElementsByClassName('total-input')[3];
+const costIncludingRollbackInput = document.getElementsByClassName('total-input')[4];
 let screenBlocks = document.querySelectorAll('.screen');
 
 const appData = {
