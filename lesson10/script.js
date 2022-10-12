@@ -13,7 +13,7 @@ books[3].before(books[4]);
 // Заменить картинку заднего фона на другую из папки image
 document.body.style.background = 'url("./image/bg.jpg")';
 // Исправить заголовок в книге 3( Получится - "Книга 3. this и Прототипы Объектов")
-books[4].querySelector('h2').querySelector('a').text = "Книга 3. this и Прототипы Объектов"
+books[4].querySelector('h2').querySelector('a').text = "Книга 3. this и Прототипы Объектов";
 // Удалить рекламу со страницы
 document.querySelector('.adv').remove();
 // Восстановить порядок глав во второй и пятой книге (внимательно инспектируйте индексы элементов, поможет dev tools)
