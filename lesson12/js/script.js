@@ -29,30 +29,27 @@ const appData = {
   servicesPercent: {},
   servicesNumber: {},
   count: 0,
+  isBlocked: true,
 
   init: function () {
     appData.addTitle();
     startBtn.addEventListener('click', appData.start);
     buttonPlus.addEventListener('click', appData.addScreensBlock);
     inputRange.addEventListener('input', appData.setRollback);
-    document.querySelectorAll('.screen select').forEach((elem) => {
-      elem.addEventListener('change', appData.blockBtn);
-    });
-    document.querySelectorAll('.screen input').forEach((elem) => {
-      elem.addEventListener('input', appData.blockBtn);
-    });
-
   },
   addTitle: function () {
     document.title = title.textContent;
   },
   start: function () {
     appData.blockBtn();
-    appData.addScreens();
-    appData.addServices();
-    appData.addPrices();
-    appData.showRersult();
-
+    if (!appData.isBlocked) {
+      appData.addScreens();
+      appData.addServices();
+      appData.addPrices();
+      appData.showRersult();
+    } else {
+      alert('Выберите тип экрана и заполните все поля');
+    }
   },
   showRersult: function () {
     costLayoutInput.value = appData.screenPrice;
@@ -66,11 +63,7 @@ const appData = {
     screens.forEach(screen => {
       const select = screen.querySelector('select');
       const input = screen.querySelector('input');
-      if ((select.selectedIndex === 0) || (input.value.length === 0)) {
-        startBtn.disabled = true;
-      } else {
-        startBtn.disabled = false;
-      }
+      appData.isBlocked = ((select.selectedIndex === 0) || (input.value.length === 0)) ? true : false;
     });
   },
 
@@ -114,12 +107,6 @@ const appData = {
   addScreensBlock: function () {
     const cloneScreen = screens[0].cloneNode(true);
     screens[screens.length - 1].after(cloneScreen);
-    document.querySelectorAll('.screen select').forEach((elem) => {
-      elem.addEventListener('change', appData.blockBtn);
-    });
-    document.querySelectorAll('.screen input').forEach((elem) => {
-      elem.addEventListener('input', appData.blockBtn);
-    });
   },
   addPrices: function () {
     appData.screenPrice = appData.screens.reduce((sum, currentItem) => {
