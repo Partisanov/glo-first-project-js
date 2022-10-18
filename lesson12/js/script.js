@@ -32,7 +32,7 @@ const appData = {
   isBlocked: true,
 
   init: function () {
-    appData.addTitle();
+    this.addTitle();
     startBtn.addEventListener('click', appData.start);
     buttonPlus.addEventListener('click', appData.addScreensBlock);
     inputRange.addEventListener('input', appData.setRollback);
@@ -71,7 +71,7 @@ const appData = {
     screens = document.querySelectorAll('.screen');
     appData.count = 0;
 
-    screens.forEach(function (screen, index) {
+    screens.forEach((screen, index) => {
       const select = screen.querySelector('select');
       const input = screen.querySelector('input');
       const selectName = select.options[select.selectedIndex].textContent;
@@ -87,7 +87,7 @@ const appData = {
     });
   },
   addServices: function () {
-    otherItemsPercent.forEach(function (item) {
+    otherItemsPercent.forEach((item) => {
       const check = item.querySelector('input[type=checkbox]');
       const label = item.querySelector('label');
       const input = item.querySelector('input[type=text]');
@@ -95,7 +95,7 @@ const appData = {
         appData.servicesPercent[label.textContent] = +input.value;
       }
     });
-    otherItemsNumber.forEach(function (item) {
+    otherItemsNumber.forEach((item) => {
       const check = item.querySelector('input[type=checkbox]');
       const label = item.querySelector('label');
       const input = item.querySelector('input[type=text]');
