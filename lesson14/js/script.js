@@ -43,7 +43,7 @@ const appData = {
     buttonPlus.addEventListener('click', this.addScreensBlock);
     inputRange.addEventListener('input', this.setRollback.bind(appData));
     resetBtn.addEventListener('click', this.reset.bind(appData));
-    cms.addEventListener('click', this.openCms);
+    cms.addEventListener('click', this.openCms.bind(appData));
     cmsSelect.addEventListener('click', this.cmsChange.bind(appData));
   },
   addTitle: function () {
@@ -65,6 +65,7 @@ const appData = {
   reset: function () {
     this.resetData();
     this.resetForm();
+    this.cmsReset();
   },
   resetData: function () {
     this.screens = [];
@@ -79,7 +80,6 @@ const appData = {
     this.servicesNumber = {};
     this.count = 0;
     this.isBlocked = true;
-    this.cmsPercent = 0;
   },
   resetForm: function () {
     const mainControls = document.querySelector('.main-controls');
@@ -110,11 +110,7 @@ const appData = {
     buttonPlus.disabled = false;
     startBtn.style.display = 'block';
     resetBtn.style.display = 'none';
-    cmsVariants.style.display = 'none';
-    cmsSelect.disabled = false;
-    cmsSelect.selectedIndex = 0;
-    cmsOtherInput.disabled = false;
-    cmsOtherInput.value = 0;
+
   },
   showRersult: function () {
     costLayoutInput.value = this.screenPrice;
@@ -124,7 +120,20 @@ const appData = {
     costIncludingRollbackInput.value = this.servicePercentPrice;
   },
   openCms: function () {
-    cmsVariants.style.display = (cms.checked) ? 'flex' : 'none';
+    if (cms.checked) {
+      cmsVariants.style.display = 'flex';
+    } else {
+      this.cmsReset();
+    }
+  },
+  cmsReset: function () {
+    cmsVariants.style.display = 'none';
+    cmsSelect.disabled = false;
+    cmsSelect.selectedIndex = 0;
+    cmsOtherInput.disabled = false;
+    cmsOtherInput.value = 0;
+    this.cmsPercent = 0;
+
   },
   cmsChange: function () {
     const value = cmsSelect.value;
