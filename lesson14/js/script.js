@@ -39,12 +39,12 @@ const appData = {
 
   init: function () {
     this.addTitle();
-    startBtn.addEventListener('click', this.start.bind(appData));
+    startBtn.addEventListener('click', this.start.bind(this));
     buttonPlus.addEventListener('click', this.addScreensBlock);
-    inputRange.addEventListener('input', this.setRollback.bind(appData));
-    resetBtn.addEventListener('click', this.reset.bind(appData));
-    cms.addEventListener('click', this.openCms.bind(appData));
-    cmsSelect.addEventListener('click', this.cmsChange.bind(appData));
+    inputRange.addEventListener('input', this.setRollback.bind(this));
+    resetBtn.addEventListener('click', this.reset.bind(this));
+    cms.addEventListener('click', this.openCms.bind(this));
+    cmsSelect.addEventListener('click', this.cmsChange.bind(this));
   },
   addTitle: function () {
     document.title = title.textContent;
