@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Card</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/script.js" defer></script>
+</head>
+
+<body>
+    <header class="header">
+        <form class="header__form">
+            <ul class="main__list">
+                <li class="main__item"><input class="header-input" id="fName" type="text" placeholder="Имя" required>
+                </li>
+                <li class="main__item"><input class="header-input" id="sName" type="text" placeholder="Фамилия"
+                        required></li>
+                <li class="main__item"><input class="header-input" id="age" type="text" placeholder="Возраст" required>
+                </li>
+                <li class="main__item">
+                    <select name="sex" id="sex" required>
+                        <option value="" selected disabled hidden>Выберите пол</option>
+                        <option value="мужской">мужской</option>
+                        <option value="женский">женский</option>
+                    </select>
+                </li>
+                <li class="main__item"> <select name="status" id="status" required>
+                        <option value="" selected disabled hidden>Выберите место учёбы
+                        </option>
+                        <option value="school">Школа</option>
+                        <option value="student">Институт</option>
+                    </select></li>
+            </ul>
+            <div class="info"></div>
+            <button class="header__button" id="add" type="submit">Добавить</button>
+        </form>
+    </header>
+    <main>
+        <table id="table" class="table">
+            <thead>
+                <tr>
+                    <th>Фамилия</th>
+                    <th>Имя</th>
+                    <th>Возраст</th>
+                    <th>Пол</th>
+                    <th>Дополнительная информация</th>
+                    <th>Удалить</th>
+                </tr>
+            </thead>
+            <tbody id="studentstable"></tbody>
+        </table>
+
+    </main>
+
+</body>
+
+</html>
