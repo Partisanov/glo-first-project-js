@@ -1,5 +1,5 @@
 const data = JSON.parse(localStorage.getItem('students')) || [];
-const form = document.querySelector('.header__form');
+const form = document.querySelector('#form');
 const submitBtn = document.querySelector('#add');
 const statusSelect = document.querySelector('#status');
 const info = document.querySelector('.info');
@@ -108,7 +108,7 @@ const render = () => {
         <td>${item.age}</td>
         <td>${item.sex}</td>
         <td>${item.additionally}</td>
-        <td><button class="remove">удалить</button></td>
+        <td><button class="btn btn-danger  remove">удалить</button></td>
         `);
         tr.querySelector('.remove').addEventListener('click', () => {
             data.splice(index, 1);
@@ -134,26 +134,30 @@ const resetForm = () => {
 statusSelect.addEventListener('change', (event) => {
     if (event.target.value === 'school') {
         info.innerHTML = '';
-        info.insertAdjacentHTML("beforeend", `            
-        <ul class="school__list">
-            <li class="school__item">
-                <input class="header-input" id="schoolNumber" type="text" placeholder="Номер школы" required>
-             </li>
-            <li class="school__item"><label for="classNum">Класс:</label><input class="header-input" id="classNum" 
-                type="number" min="1" max="11" required>
-            </li>
-        </ul>`);
+        info.insertAdjacentHTML("beforeend", `
+            <div class="col-md-3">
+                <label for="schoolNumber" class="form-label">Школа</label>
+                <input type="text" class="form-control" id="schoolNumber" value="" required>
+            </div>
+            <div class="col-md-1">
+                <label for="classNum" class="form-label">Класс</label>
+                <input type="number" class="form-control" id="classNum" min="1" max="11" required>
+            </div>`);
     } else {
         info.innerHTML = '';
         info.insertAdjacentHTML('beforeend', `            
-        <ul class="institute__list">
-            <li class="institute__item"><input class="header-input" id="instituteName" type="text"
-                    placeholder="Название института" required></li>
-            <li class="institute__item"><input class="header-input" id="faculty" type="text" placeholder="Факультет"
-                    required></li>
-            <li class="institute__item"><label for="year">Курс:</label><input class="header-input" id="year" 
-            type="number" min="1" max="5" required></li>
-        </ul>`);
+            <div class="col-md-3">
+                <label for="instituteName" class="form-label">Название института</label>
+                <input type="text" class="form-control" id="instituteName" value="" required>
+            </div>
+            <div class="col-md-3">
+                <label for="faculty" class="form-label">Факультет</label>
+                <input type="text" class="form-control" id="faculty" value="" required>
+            </div>
+            <div class="col-md-1">
+                <label for="year" class="form-label">Курс</label>
+                <input type="number" class="form-control" id="year" min="1" max="5" required>
+            </div>`);
     }
 });
 form.addEventListener('submit', function (event) {

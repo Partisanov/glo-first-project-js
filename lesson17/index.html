@@ -5,43 +5,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Card</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/style.css">
+    <title>Student Card</title>
     <script src="./js/script.js" defer></script>
+
 </head>
 
 <body>
-    <header class="header">
-        <form class="header__form">
-            <ul class="main__list">
-                <li class="main__item"><input class="header-input" id="fName" type="text" placeholder="Имя" required>
-                </li>
-                <li class="main__item"><input class="header-input" id="sName" type="text" placeholder="Фамилия"
-                        required></li>
-                <li class="main__item"><input class="header-input" id="age" type="text" placeholder="Возраст" required>
-                </li>
-                <li class="main__item">
-                    <select name="sex" id="sex" required>
-                        <option value="" selected disabled hidden>Выберите пол</option>
-                        <option value="мужской">мужской</option>
-                        <option value="женский">женский</option>
-                    </select>
-                </li>
-                <li class="main__item"> <select name="status" id="status" required>
-                        <option value="" selected disabled hidden>Выберите место учёбы
-                        </option>
-                        <option value="school">Школа</option>
-                        <option value="student">Институт</option>
-                    </select></li>
-            </ul>
-            <div class="info"></div>
-            <button class="header__button" id="add" type="submit">Добавить</button>
+    <div class="container pt-5">
+        <form class="row g-3 mb-5" id="form">
+            <div class="col-md-3">
+                <label for="fName" class="form-label">Имя</label>
+                <input type="text" class="form-control" id="fName" value="" required>
+            </div>
+            <div class="col-md-3">
+                <label for="sName" class="form-label">Фамилия</label>
+                <input type="text" class="form-control" id="sName" value="" required>
+            </div>
+            <div class="col-md-3">
+                <label for="age" class="form-label">Возраст</label>
+                <input type="text" class="form-control" id="age" value="" required>
+            </div>
+            <div class="col-md-3">
+                <label for="sex" class="form-label">Пол</label>
+                <select class="form-select" id="sex" required>
+                    <option selected disabled hidden value="">Выберите пол</option>
+                    <option value="мужской">мужской</option>
+                    <option value="женский">женский</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="status" class="form-label">Место учёбы</label>
+                <select class="form-select" id="status" required>
+                    <option selected disabled hidden value="">Выберите место учёбы</option>
+                    <option value="school">Школа</option>
+                    <option value="student">Институт</option>
+                </select>
+            </div>
+            <div class="info row g-3">
+
+            </div>
+
+            <div class="col-12">
+                <button class="btn btn-outline-success" type="submit">Отправить</button>
+            </div>
         </form>
-    </header>
-    <main>
-        <table id="table" class="table">
+        <table class="table table-success table-striped" id="table">
             <thead>
                 <tr>
                     <th>Фамилия</th>
@@ -54,8 +64,11 @@
             </thead>
             <tbody id="studentstable"></tbody>
         </table>
+    </div>
 
-    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 
 </body>
 
